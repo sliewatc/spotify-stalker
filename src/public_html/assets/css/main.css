@@ -1,8 +1,90 @@
 body {
-    background-color: #191414 !important;
-    color: #1db954 !important;
+    background-color: #212121 !important;
+    color: #1ED760 !important;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
 }
 
 .stalk-title {
     font-size: 3em;
+    padding: 0 0 0 10px;
+}
+
+.contform {
+    margin: 5px 0 0 0;
+}
+
+.menu-icon {
+    width: 27px;
+    margin: 0 10px 0 0;
+    cursor: pointer;
+}
+
+.menu-icon:hover {
+    filter: brightness(1.4);
+    -webkit-filter: brightness(1.4);
+}
+
+.bg-view {
+    background-image: url("../img/bg-header.jpg");
+    background-size: cover;
+    height: 100vh;
+}
+
+.app-wrap {
+    height: inherit;
+}
+
+.view-wrap {
+
+}
+
+.nav-bar {
+    background-color: #191414 !important;
+    border-bottom: 1px solid #1ED760;
+}
+
+.menu-view {
+    background-color: #191414;
+    border-bottom: 1px solid #1ED760;
+}
+
+#menu-this {
+    display: flex;
+}
+
+.menu-item {
+    padding: 15px 0 15px 0;
+    border-width: 0 1px 0 1px;
+    border-color: #cdd2d6;
+    color: #a8a6aa;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    background-color: #1aaa50;
+    color: white;
+}
+
+.anim-fi {
+    -webkit-transition: 0.1s ease-in;
+    -moz-transition: 0.1s ease-in;
+    -o-transition: 0.1s ease-in;
+    -ms-transition: 0.1s ease-in;
+    transition: 0.1s ease-in;
+}
+
+.central-box {
+    color: white;
+    height: 100px;
+    width: 200px;
+    border: 2px solid white;
+    background-color: #212121;
+    border-radius: 10px;
 }
