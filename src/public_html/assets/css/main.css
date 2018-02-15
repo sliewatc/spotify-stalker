@@ -3,6 +3,14 @@ body {
     color: #1ED760 !important;
 }
 
+a, a:hover {
+    text-decoration: none !important;
+
+}
+.central-box a, .central-box a:hover {
+    color: white !important;
+}
+
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -21,8 +29,8 @@ body {
 }
 
 .menu-icon {
-    width: 27px;
-    margin: 0 10px 0 0;
+    width: 40px;
+    padding: 5px 10px 5px 10px;
     cursor: pointer;
 }
 
@@ -31,8 +39,9 @@ body {
     -webkit-filter: brightness(1.4);
 }
 
+
 .bg-view {
-    background-image: url("../img/bg-header.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url("../img/bg-header.jpg");
     background-size: cover;
     height: 100vh;
 }
@@ -53,6 +62,10 @@ body {
 .menu-view {
     background-color: #191414;
     border-bottom: 1px solid #1ED760;
+}
+
+.menu-view a {
+    color: white !important;
 }
 
 #menu-this {
@@ -81,10 +94,89 @@ body {
 }
 
 .central-box {
+    position: relative;
+    bottom: 30px;
     color: white;
-    height: 100px;
-    width: 200px;
-    border: 2px solid white;
-    background-color: #212121;
-    border-radius: 10px;
+    height: 30vh;
+    width: auto;
+    margin: 0 auto;
+}
+
+.abs-menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 100;
+}
+.s-btn {
+    display: inline-block;
+    border-radius: 30px;
+    text-decoration: none;
+    border: none;
+    color: white;
+    background-color: #1bb053;
+    padding: 8px 35px;
+    cursor: pointer;
+    outline: none;
+    margin-top: 5px;
+}
+
+.page-fill {
+    min-height: 100vh;
+}
+
+.c-did {
+    margin: 0 auto;
+}
+
+.l-register {
+
+}
+.r-register {
+    height: 100vh;
+    background-color: #e1f2dc;
+    color: #191414;
+}
+
+.text-green {
+    color: #1ED760;
+}
+
+.text-d-green {
+    color: #1bb053;
+}
+
+.noverflow {
+    overflow: hidden;
+}
+
+.reg-peep {
+    max-width: 75%;
+    padding: 20px 0;
+}
+
+.register-wrap {
+    height: inherit;
+}
+
+.bg-grad {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1))
+}
+
+.btn-hide {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+}
+
+.btn-reset {
+    border: none;
+    cursor: pointer;
+    outline: none;
+    height: 20px;
+    width: 30px;
+}
+
+.bg-none {
+    background: none;
 }
