@@ -35,7 +35,7 @@
                     <button type="submit" class="button button-block">Go!</button>
                 </form>
             </div>
-        </div> <!-- /form -->
+        </div> <!-- /formm -->
     </div>
 </div>
 </body>
