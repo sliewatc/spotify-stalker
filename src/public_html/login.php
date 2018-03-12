@@ -1,8 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<html lang=>
 <head>
     <meta charset="UTF-8">
-    <title>Stalkify Register</title>
+    <title>Stalkify Login</title>
 
     <!--
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -14,32 +14,30 @@
 
     <link href="assets/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
     <script src="assets/lib/bootstrap/bootstrap.min.js"></script>
-    <script src="assets/lib/jquery/jquery-3.3.1.min.js"></script>
-    <script src="assets/lib/popper/popper.min.js"></script>
-    <script src="assets/lib/angularjs/angular.min.js"></script>
-
+    <link href="assets/css/authform.css" rel="stylesheet">
     <link href="assets/css/main.css" rel="stylesheet">
 
     <script src="assets/js/stalker.js"></script>
 </head>
 <body>
-    <div class="container-fluid page-fill noverflow bg-grad">
-        <div class="row align-items-center page-fill">
-            <div class="col-sm-6 col-12 order-sm-1 order-2 l-register ">
-                <div class="text-center font-weight-light c-did reg-peep">
-                    <h5 class="text-d-green">Know Yourself</h5>
-                    <p class="text-light">Begin keeping track of your updated Spotify listening habits, your favorites,
-                        and statistics!</p>
-                </div>
-            </div>
-            <div class="col-sm-6 col-12 order-sm-2 order-1 r-register">
-                <div class="row align-items-center register-wrap">
-                    <div class="register-form c-did">
-                        REGISTER FORM
+<div class="row align-items-center login-wrap noverflow">
+    <div class="register-form c-did">
+        <div class="form">
+            <div id="signup">
+                <h5>Log In</h5>
+                <form action="loginex.php" method="post">
+                    <div class="field-wrap">
+                        <input name="username" placeholder="Username" required autocomplete="off"/>
                     </div>
-                </div>
+                    <div class="field-wrap">
+                        <input name="password" placeholder="Password" type="password" required autocomplete="off"/>
+                    </div>
+                    <button type="submit" class="button button-block">Go!</button>
+                </form>
             </div>
-        </div>
+        </div> <!-- /form -->
     </div>
+</div>
 </body>
+
 </html>

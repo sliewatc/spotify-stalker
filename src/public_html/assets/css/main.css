@@ -1,12 +1,19 @@
 body {
     background-color: #212121 !important;
     color: #1ED760 !important;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 a, a:hover {
     text-decoration: none !important;
 
 }
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    opacity: 0.8;
+}
+
 .central-box a, .central-box a:hover {
     color: white !important;
 }
@@ -127,13 +134,17 @@ a, a:hover {
 
 .c-did {
     margin: 0 auto;
+    display: block;
+    padding: 0 5% 0 5%;
 }
 
 .l-register {
 
 }
 .r-register {
-    height: 100vh;
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
     background-color: #e1f2dc;
     color: #191414;
 }
@@ -152,11 +163,17 @@ a, a:hover {
 
 .reg-peep {
     max-width: 75%;
-    padding: 20px 0;
+    padding: 60px 0;
 }
 
 .register-wrap {
     height: inherit;
+    margin: 0 auto;
+}
+
+.login-wrap {
+    background-color: #e1f2dc;
+    min-height: 100vh;
 }
 
 .bg-grad {

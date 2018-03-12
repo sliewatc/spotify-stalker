@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -35,7 +34,9 @@
                 <div class="row col-6 align-items-center justify-content-end">
                     <div class="menu-wrapper">
                         <img class="anim-fi img-fluid menu-icon" id="menu-burger" src="assets/img/menuham.png">
-                        <img class="anim-fi img-fluid menu-icon" id="menu-power" src="assets/img/pwrbtn.png">
+                        <a href="login.php">
+                            <img class="anim-fi img-fluid menu-icon" id="menu-power" src="assets/img/pwrbtn.png">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -54,7 +55,7 @@
                             <div class="central-box text-center">
                                 <h3 class="font-weight-light">Start Stalking!</h3>
                                 <p>Make sure you know just exactly how your friends and family listen to their music</p>
-                                <a href="#" class="s-btn btn-register">REGISTER</a>
+                                <a href="register.php" class="s-btn btn-register">CONNECT</a>
                             </div>
                         </div>
                     </div>
