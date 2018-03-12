@@ -1,0 +1,15 @@
+{
+  "name": "seaninc/stalkify",
+  "description": "Stalkify Host",
+  "minimum-stability": "stable",
+  "license": "none",
+  "authors": [
+    {
+      "name": "Sean Liew",
+      "email": "s3liew@uwaterloo.ca"
+    }
+  ],
+  "require": {
+    "jwilsson/spotify-web-api-php": "2.2.0"
+  }
+}
