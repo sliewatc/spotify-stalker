@@ -24,6 +24,8 @@ $accessToken = $session->getAccessToken();
 $refreshToken = $session->getRefreshToken();
 $api->setAccessToken($accessToken);
 
+$_SESSION['accessToken'] = $accessToken;
+
 $return = $api->me();
 $id = $return->id;
 
