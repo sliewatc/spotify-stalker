@@ -1,0 +1,130 @@
+/*
+	Side Navigation Menu V2, RWD
+	===================
+	License:
+	https://goo.gl/EaUPrt
+	===================
+	Author: @PableraShow
+
+ */
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+h5 {
+    font-size:1.1em;
+    font-weight: 400;
+    line-height: 1em;
+    text-align: left;
+    color: #1bb053;
+}
+
+h2 {
+    font-size:1em;
+    font-weight: 300;
+    text-align: center;
+    display: block;
+    line-height:1em;
+    padding-bottom: 2em;
+    color: #FB667A;
+}
+
+h2 a {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #FB667A;
+    text-decoration: none;
+}
+
+.xoverflow {
+    overflow-x: auto;
+}
+
+.blue { color: #185875; }
+.yellow { color: #FFF842; }
+
+.tbl-container th h1 {
+    font-weight: bold;
+    font-size: 1em;
+    text-align: left;
+    color: #158e43;
+}
+
+.tbl-container td {
+    font-weight: normal;
+    font-size: 1em;
+    -webkit-box-shadow: 0 2px 2px -2px #0E1119;
+    -moz-box-shadow: 0 2px 2px -2px #0E1119;
+    box-shadow: 0 2px 2px -2px #0E1119;
+}
+
+.tbl-container {
+    text-align: left;
+    overflow: scroll;
+    width: 100%;
+    margin: 0 auto;
+    display: table;
+    padding: 0 0 3em 0;
+}
+
+.tbl-container td, .tbl-container th {
+    padding-bottom: 1em;
+    padding-top: 1em;
+    padding-left:0.5em;
+    padding-right: 0.75em;
+}
+
+/* Background-color of the odd rows */
+.tbl-container tr:nth-child(odd) {
+    background-color: #1d1d1d;
+}
+
+/* Background-color of the even rows */
+.tbl-container tr:nth-child(even) {
+    background-color: #1e1e1e;
+}
+
+.tbl-container th {
+    background-color: #151515;
+}
+
+.tbl-container td { color: #8f8f8f; }
+
+.tbl-container tr {
+    line-height: 27px;
+    max-height: 27px;
+}
+.tbl-container tr:hover {
+    background-color: #202020;
+}
+
+.tableplay {
+    height: 25px;
+    width: 25px;
+}
+
+.tableindex {
+    opacity: 0.5;
+}
+/*
+
+.tbl-container td:first-child:hover {
+    background-color: #158e43;
+    color: #ffffff;
+
+    box-shadow: #158e43 0 2px;
+    transition-delay: 0s;
+    transition-duration: 0.4s;
+    transition-property: all;
+    transition-timing-function: ease-in;
+}
+*/
+
+@media (max-width: 800px) {
+    .tbl-container td:nth-child(4),
+    .tbl-container th:nth-child(4) { display: none; }
+}
+
+@media (max-width: 500px) {
+    .tbl-container td:nth-child(3),
+    .tbl-container th:nth-child(3) { display: none; }
+}
