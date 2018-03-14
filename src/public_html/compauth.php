@@ -11,12 +11,7 @@ $email = $_SESSION['email'];
 $fname = $_SESSION['firstname'];
 $lname = $_SESSION['lastname'];
 
-$api = new SpotifyWebAPI\SpotifyWebAPI();
-$session = new SpotifyWebAPI\Session(
-    'a625c6b83e6b4643af1e51be60578d7d',
-    '8a3f2d09810046308b6450f806784d5b',
-    'http://165.227.45.166/compauth.php'
-);
+include('initapi.php');
 
 // Request a access token using the code from Spotify
 $session->requestAccessToken($_GET['code']);
@@ -29,29 +24,21 @@ $_SESSION['accessToken'] = $accessToken;
 $return = $api->me();
 $id = $return->id;
 
-$sql = "INSERT INTO usertable (username, firstname, lastname, password, email, spotifyid, refreshtoken)
-VALUES ('$username', '$fname', '$lname', '$psw', '$email', '$id', '$refreshToken')";
+$sql = "INSERT INTO usertable (username, firstname, lastname, password, email, spotifyid, refreshtoken, accesstoken)
+VALUES ('$username', '$fname', '$lname', '$psw', '$email', '$id', '$refreshToken', '$accessToken')";
 
 if (mysqli_query($conn, $sql)) {
     echo "success";
+    $_SESSION['actUser'] = $username;
+    $_SESSION['passUser'] = $password;
+    $_SESSION['state'] = true;
     header('Location: index.php');
 } else {
-    echo "fail";
+    echo "Error that account is already linked";
     header('Location: register.php');
 }
+
 die();
-
-/*
-$sql = "UPDATE usertable
-SET refreshtoken = '$refreshToken', spotifyid = '$id'
-WHERE email='$user'";
-
-if (mysqli_query($conn, $sql)) {
-    echo "success";
-} else {
-    echo "fail";
-}
-*/
 
 
 

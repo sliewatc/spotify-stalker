@@ -22,8 +22,13 @@ a {
 Main Page Content
 
 -------------------------------- */
+.cd-main-content {
+    background-color: #151515;
+}
+
 .cd-main-content .content-wrapper {
-  padding: 45px 5% 3em;
+  padding: 15px 2% 3em;
+    background-color: #212121;
 }
 .cd-main-content .content-wrapper h1 {
   text-align: center;
@@ -38,7 +43,7 @@ Main Page Content
 @media only screen and (min-width: 768px) {
   .cd-main-content .content-wrapper {
     margin-left: 110px;
-    padding-top: 55px;
+    padding-top: 1%;
   }
   .cd-main-content .content-wrapper h1 {
     padding: 4em 0;
@@ -387,13 +392,13 @@ Sidebar
   text-transform: uppercase;
   font-weight: bold;
   color: #158e43;
-  font-size: 1rem;
+  font-size: 0.8em;
   letter-spacing: .1em;
 }
 .cd-side-nav a {
   position: relative;
   color: #8f8f8f;
-  font-size: 1rem;
+  font-size: 0.8em;
 }
 .cd-side-nav ul.cd-top-nav > li:last-of-type > a {
   border-bottom: none;
@@ -476,7 +481,7 @@ Sidebar
     float: left;
     top: auto;
     width: 110px;
-    min-height: calc(100vh - 66px);
+    min-height: calc(100vh - 67px);
     /* reset style */
     visibility: visible;
     opacity: 1;
@@ -517,7 +522,7 @@ Sidebar
   .cd-side-nav .active > a {
     /* current page */
     box-shadow: inset 3px 0 0 #1bb053;
-    background-color: #1e1e1e;
+    background-color: #212121;
   }
   .cd-side-nav .action-btn a {
     margin: 1em 10% 0;
@@ -547,7 +552,7 @@ Sidebar
     padding: 0.6em 0;
   }
   .cd-side-nav > ul > li:not(.action-btn):hover > a {
-    background-color: #1e1e1e;
+    background-color: #212121;
   }
   .cd-side-nav > ul > li > a {
     padding: 1em 1em 1em 42px;

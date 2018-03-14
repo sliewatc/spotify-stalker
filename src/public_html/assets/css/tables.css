@@ -63,13 +63,14 @@ h2 a {
     width: 100%;
     margin: 0 auto;
     display: table;
-    padding: 0 0 8em 0;
+    padding: 0 0 3em 0;
 }
 
 .tbl-container td, .tbl-container th {
-    padding-bottom: 1.5%;
-    padding-top: 1.5%;
-    padding-left:2%;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    padding-left:0.5em;
+    padding-right: 0.75em;
 }
 
 /* Background-color of the odd rows */
@@ -79,7 +80,7 @@ h2 a {
 
 /* Background-color of the even rows */
 .tbl-container tr:nth-child(even) {
-    background-color: #1d1d1d;
+    background-color: #1e1e1e;
 }
 
 .tbl-container th {
@@ -89,19 +90,23 @@ h2 a {
 .tbl-container td { color: #8f8f8f; }
 
 .tbl-container tr {
-    line-height: 30px;
+    line-height: 27px;
+    max-height: 27px;
 }
 .tbl-container tr:hover {
     background-color: #202020;
 }
 
-.tbl-container tbody tr:hover :first-child {
-    background-color: #158e43;
-    color: white;
-    transition-duration: 0.2s;
-    transition-timing-function: ease-in;
+.tableplay {
+    height: 25px;
+    width: 25px;
+}
+
+.tableindex {
+    opacity: 0.5;
 }
 /*
+
 .tbl-container td:first-child:hover {
     background-color: #158e43;
     color: #ffffff;

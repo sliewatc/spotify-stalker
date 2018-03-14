@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <div class="row nav-bar noselect">
     <div class="col-6">
         <h4 class= "col stalk-title font-weight-light">
@@ -7,9 +11,15 @@
     <div class="row col-6 align-items-center justify-content-end">
         <div class="menu-wrapper">
             <img class="anim-fi img-fluid menu-icon" id="menu-burger" src="assets/img/menuham.png">
-            <a href="login.php">
-                <img class="anim-fi img-fluid menu-icon" id="menu-power" src="assets/img/pwrbtn.png">
-            </a>
+            <?php if($_SESSION["state"] !== true): ?>
+                <a href="login.php">
+                    <img class="anim-fi img-fluid menu-icon" id="menu-power" src="assets/img/pwrbtn.png">
+                </a>
+            <?php elseif ($_SESSION["state"] == true): ?>
+                <a href="#">
+                    <img class="anim-fi img-fluid menu-icon" id="menu-power" src="assets/img/pwrbtn-g.png">
+                </a>
+            <?php endif; ?>
         </div>
     </div>
 </div>
