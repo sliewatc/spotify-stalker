@@ -1,0 +1,22 @@
+<h2>Top Tracks</h2>
+<div class="podiumstage">
+    <div class="podium" ng-repeat="song in songs | limitTo: 3">
+        <div class="cropper" style="border-radius: 5%">
+            <a href="{{song.external_urls.spotify}}">
+                <img src="{{song.album.images[1].url}}">
+            </a>
+        </div>
+        <p>{{song.name}}</p>
+    </div>
+</div>
+<h2>Top Artists</h2>
+<div class="podiumstage">
+    <div class="podium" ng-repeat="artist in artists | limitTo: 3">
+        <div class="cropper">
+            <a href="{{artist.external_urls.spotify}}">
+                <img src="{{artist.images[1].url}}">
+            </a>
+        </div>
+        <p>{{artist.name}}</p>
+    </div>
+</div>

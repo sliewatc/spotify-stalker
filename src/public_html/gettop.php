@@ -17,6 +17,11 @@ $api->setAccessToken($accessToken);
 $options = array('time_range' => $time);
 
 $top = $api->getMyTop($type, $options);
+
+if (!isset($top)) {
+    header('Location: tokenrefresh.php');
+}
+
 $jsonArtists = json_encode($top);
 
 print_r(

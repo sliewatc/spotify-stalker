@@ -13,6 +13,10 @@ $lname = $_SESSION['lastname'];
 
 include('initapi.php');
 
+if (!isset($_GET['code'])) {
+    header('Location: register.php');
+}
+
 // Request a access token using the code from Spotify
 $session->requestAccessToken($_GET['code']);
 $accessToken = $session->getAccessToken();

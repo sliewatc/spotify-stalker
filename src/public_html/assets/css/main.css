@@ -3,6 +3,7 @@ body {
     color: #1ED760 !important;
     overflow-x: hidden;
     overflow-y: scroll;
+    font-size: 0.9em;
 }
 
 a, a:hover {
@@ -62,7 +63,7 @@ a, a:hover {
 }
 
 .nav-bar {
-    background-color: #191414 !important;
+    background-color: #0f0f0f !important;
     border-bottom: 1px solid #1ED760;
 }
 
