@@ -198,3 +198,30 @@ a, a:hover {
 .bg-none {
     background: none;
 }
+
+.infoslide {
+    min-height: 5em;
+    color: white;
+    opacity: 0.7;
+    width: 70%;
+    margin: 10px 0 20px 1em;
+}
+
+.bar {
+    width: 80%;
+    height: 4px;
+    background-color: #151515;
+    border-radius: 2px;
+    margin-bottom: 1em;
+    overflow: hidden;
+}
+
+.bar-fill {
+    background-color: #1ED760;
+    height: 4px;
+    width: 0%;
+    -webkit-transition: width 500ms ease-out 1s;
+    -moz-transition: width 500ms ease-out 1s;
+    -o-transition: width 500ms ease-out 1s;
+    transition: width 500ms ease-out 1s;
+}

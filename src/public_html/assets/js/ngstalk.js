@@ -78,7 +78,7 @@ stalkApp.filter("timeago", function () {
         }
         return (time <= local) ? span + ' ago' : 'in ' + span;
     }
-})
+});
 
 stalkApp.run(function($rootScope) {
     $rootScope.openDetails = function(index){
@@ -106,15 +106,48 @@ stalkApp.filter('songTime',function(){
 stalkApp.controller('RecentSongs', ['$scope', '$http', function($scope, $http) {
     var data = $.param({limit: 20});
     var config = {headers : {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'}};
-
+    var idAr = [];
+    var ids = "";
     $http.post("http://165.227.45.166/getrecentsong.php", data, config)
         .then(function(response) {
             $scope.songs = response.data['items'];
+            var song;
+            for (song of $scope.songs) {
+                idAr.push(song.track.id);
+            }
+            ids = idAr.join(",");
             console.log(response.data);
+
+            data = $.param({addstr: ids});
+            $http.post("http://165.227.45.166/audiofeatures.php", data, config)
+                .then(function(response) {
+                    var dance = 0;
+                    var energy = 0;
+                    var valence = 0;
+                    var instrument = 0;
+                    var acoustic = 0;
+                    $scope.features = response.data['audio_features'];
+                    console.log(response.data);
+                    for (feature of $scope.features) {
+                        dance += feature.danceability;
+                        energy += feature.energy;
+                        valence += feature.valence;
+                        instrument += feature.instrumentalness;
+                        acoustic += feature.acousticness;
+                    }
+                    $scope.dance = dance / 20 * 100;
+                    $scope.energy = energy / 20 * 100;
+                    $scope.valence = valence / 20 * 100;
+                    $scope.instrument = instrument / 20 * 100;
+                    $scope.acoustic = acoustic / 20 * 100;
+
+                })
+                .catch();
         })
         .catch(function(data) {
             console.error("OOPS");
         });
+
 }]);
 
 stalkApp.controller('TopSongs', ['$scope', '$http', function($scope, $http) {
@@ -172,10 +205,11 @@ stalkApp.controller('OverallStats', ['$scope', '$http', function($scope, $http) 
 }]);
 
 
-stalkApp.directive('activeLink', function($location) {
+stalkApp.directive('activeLink', function($location, $rootScope) {
     var link = function(scope, element, attrs) {
         scope.$watch(function() { return $location.path(); },
             function(path) {
+                $rootScope.open = null;
                 var url = element.find('a').attr('href');
                 if (url) {
                     url = url.substring(1);

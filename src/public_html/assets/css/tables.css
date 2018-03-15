@@ -33,6 +33,7 @@ h2 {
     opacity: 0.75;
 }
 
+
 h2 a {
     font-weight: 700;
     text-transform: uppercase;
@@ -165,19 +166,29 @@ h2 a {
 }
 
 .dtpane td {
-    color: #575757;
+    color: #c4c4c4;
+}
+
+.dtpane td div {
+    display: inline-block;
+}
+.dtpane td p {
+    margin: 0.3em 0 0.3em 0;
 }
 
 .dtpane td img {
-    margin-right: 10px;
+    margin-right: 1em;
     border-radius: 4px;
-    height: 35px;
-    width: 35px;
+    height: 64px;
+    width: 64px;
+    vertical-align: unset;
 }
 
 .insetgreen {
     box-shadow: inset 3px 0 0 #1bb053;
 }
+
+
 /*
 
 .tbl-container td:first-child:hover {

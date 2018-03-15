@@ -36,7 +36,12 @@
         </tr>
         <tr ng-repeat-end ng-if="open == $index" class="dtpane">
             <td></td>
-            <td colspan="6"><img ng-src="{{song.album.images[2].url}}"> Popularity: {{song.popularity}} {{song.explicit ? ' - Explicit' : ''}}</td>
+            <td colspan="6">
+                <img ng-src="{{song.album.images[2].url}}">
+                <div>
+                    <p>Popularity: {{song.popularity}} {{song.explicit ? ' - Explicit' : ''}}</p>
+                </div>
+            </td>
         </tr>
         </tbody>
     </table>

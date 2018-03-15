@@ -1,5 +1,23 @@
 <view ng-controller="RecentSongs">
     <h2>Recently Played</h2>
+    <div class="infoslide">
+        <p>Energy</p>
+        <div class="bar">
+            <div class="bar-fill" style="width: {{energy}}%"></div>
+        </div>
+        <p>Dance</p>
+        <div class="bar">
+            <div class="bar-fill" style="width: {{dance}}%"></div>
+        </div>
+        <p>Instrumentalness</p>
+        <div class="bar">
+            <div class="bar-fill" style="width: {{instrument}}%"></div>
+        </div>
+        <p>Valence</p>
+        <div class="bar">
+            <div class="bar-fill" style="width: {{valence}}%"></div>
+        </div>
+    </div>
     <table class="tbl-container">
         <thead>
         <tr>
@@ -22,7 +40,14 @@
         </tr>
         <tr ng-repeat-end ng-if="open == $index" class="dtpane">
             <td></td>
-            <td colspan="6"><img ng-src="{{song.track.album.images[2].url}}"> Listened: {{song.played_at | timeago}} -  Popularity: {{song.track.popularity}} {{song.track.explicit ? ' - Explicit' : ''}}</td>
+            <td colspan="6">
+                <img ng-src="{{song.track.album.images[2].url}}">
+                <div>
+                    <p>{{song.played_at | timeago}}</p>
+                    <p>Dance: {{features[$index].danceability * 100 | number:2}}% - Tempo: {{features[$index].tempo | number:0}} - Energy: {{features[$index].energy * 100 | number:2}}%</p>
+                    <p>Popularity: {{song.track.popularity}} {{song.track.explicit ? ' - Explicit' : ''}}</p>
+                </div>
+            </td>
         </tr>
         </tbody>
     </table>
