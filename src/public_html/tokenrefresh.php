@@ -21,7 +21,7 @@ if ($sql) {
 
     $r = mysqli_query($conn, "UPDATE 'usertable' SET accesstoken = '$accessToken' WHERE username = '$username' AND password = '$password'");
     $_SESSION['accesstoken'] = $accessToken;
-    header('Location: songable.php');
+    header('Location: songable.php#!/overall');
 } else {
     echo 'Oops an error occurred.';
 }

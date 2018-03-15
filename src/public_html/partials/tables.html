@@ -1,0 +1,66 @@
+<table class="tbl-container" ng-controller="RecentSongs">
+    <thead>
+    <tr>
+        <th></th>
+        <th><h5>Song</h5></th>
+        <th></th>
+        <th><h5>Album</h5></th>
+        <th><h5>Artist</h5></th>
+        <th><h5>Duration</h5></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="song in songs" name="{{song.track.id}}">
+        <td class="tableindex">{{$index + 1}}</td>
+        <td>{{song.track.name}}</td>
+        <td><a href={{song.track.external_urls.spotify}} target="_#"><img class="tableplay" src="assets/img/playicon.png"></a></td>
+        <td>{{song.track.album.name}}</td>
+        <td><span ng-repeat="artist in song.track.artists">{{artist.name}} {{$last ? '' : ', '}}</span></td>
+        <td>{{song.track.duration_ms | songTime}}</td>
+    </tr>
+    </tbody>
+</table>
+<table class="tbl-container" ng-controller="TopSongs">
+    <thead>
+    <tr>
+        <th></th>
+        <th><h5>Song</h5></th>
+        <th></th>
+        <th><h5>Album</h5></th>
+        <th><h5>Artist</h5></th>
+        <th><h5>Duration</h5></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="song in songs" name="{{song.id}}">
+        <td class="tableindex">{{$index + 1}}</td>
+        <td>{{song.name}}</td>
+        <td><a href={{song.external_urls.spotify}} target="_#"><img class="tableplay" src="assets/img/playicon.png"></a></td>
+        <td>{{song.album.name}}</td>
+        <td><span ng-repeat="artist in song.artists">{{artist.name}} {{$last ? '' : ', '}}</span></td>
+        <td>{{song.duration_ms | songTime}}</td>
+    </tr>
+    </tbody>
+</table>
+<table class="tbl-container" ng-controller="TopArtists">
+    <thead>
+    <tr>
+        <th></th>
+        <th><h5>Artist</h5></th>
+        <th></th>
+        <th><h5>Genres</h5></th>
+        <th><h5>Popularity</h5></th>
+        <th><h5>Followers</h5></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="artist in artists" name={{artist.id}}>
+        <td class="tableindex">{{$index + 1}}</td>
+        <td>{{artist.name}}</td>
+        <td><a href={{artist.external_urls.spotify}} target="_#"><img class="tableplay" src="assets/img/playicon.png"></a></td>
+        <td><span ng-repeat="genre in artist.genres">{{genre}} {{$last ? '' : ', '}}</span></td>
+        <td>{{artist.popularity}}</td>
+        <td>{{artist.followers.total}}</td>
+    </tr>
+    </tbody>
+</table>

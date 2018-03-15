@@ -6,24 +6,21 @@ include('setconnection.php');
 $username = $_SESSION['actUser'];
 $password = $_SESSION['passUser'];
 $accessToken = $_SESSION['accesstoken'];
-$type = $_POST['type'];
-$time = $_POST['time_range'];
+$ids = $_POST['addstr'];
 
 // Fetch access token from database.
 
 $api = new SpotifyWebAPI\SpotifyWebAPI();
 $api->setAccessToken($accessToken);
 
-$options = array('time_range' => $time);
+$features = $api->getAudioFeatures($ids);
 
-$top = $api->getMyTop($type, $options);
-
-if (!isset($top)) {
+if (!isset($features)) {
     header('Location: tokenrefresh.php');
 }
 
-$jsonArtists = json_encode($top);
+$jsonFeat = json_encode($features);
 
 print_r(
-    $jsonArtists
+    $jsonFeat
 );

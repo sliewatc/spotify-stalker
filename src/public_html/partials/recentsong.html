@@ -1,0 +1,54 @@
+<view ng-controller="RecentSongs">
+    <h2>Recently Played</h2>
+    <div class="infoslide">
+        <p>Energy</p>
+        <div class="bar">
+            <div class="bar-fill" style="width: {{energy}}%"></div>
+        </div>
+        <p>Dance</p>
+        <div class="bar">
+            <div class="bar-fill" style="width: {{dance}}%"></div>
+        </div>
+        <p>Instrumentalness</p>
+        <div class="bar">
+            <div class="bar-fill" style="width: {{instrument}}%"></div>
+        </div>
+        <p>Valence</p>
+        <div class="bar">
+            <div class="bar-fill" style="width: {{valence}}%"></div>
+        </div>
+    </div>
+    <table class="tbl-container">
+        <thead>
+        <tr>
+            <th></th>
+            <th><h5>Song</h5></th>
+            <th></th>
+            <th><h5>Album</h5></th>
+            <th><h5>Artist</h5></th>
+            <th><h5>Duration</h5></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat-start="song in songs" name="{{song.track.id}}" ng-click="openDetails($index)" ng-class="{'insetgreen' : open == $index}">
+            <td class="tableindex">{{open == $index ? '' : $index + 1}}</td>
+            <td>{{song.track.name}}</td>
+            <td><a href={{song.track.external_urls.spotify}} target="_#"><img class="tableplay" src="assets/img/playicon.png"></a></td>
+            <td>{{song.track.album.name}}</td>
+            <td><span ng-repeat="artist in song.track.artists">{{artist.name}} {{$last ? '' : ', '}}</span></td>
+            <td>{{song.track.duration_ms | songTime}}</td>
+        </tr>
+        <tr ng-repeat-end ng-if="open == $index" class="dtpane">
+            <td></td>
+            <td colspan="6">
+                <img ng-src="{{song.track.album.images[2].url}}">
+                <div>
+                    <p>{{song.played_at | timeago}}</p>
+                    <p>Dance: {{features[$index].danceability * 100 | number:2}}% - Tempo: {{features[$index].tempo | number:0}} - Energy: {{features[$index].energy * 100 | number:2}}%</p>
+                    <p>Popularity: {{song.track.popularity}} {{song.track.explicit ? ' - Explicit' : ''}}</p>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</view>

@@ -23,11 +23,11 @@ Main Page Content
 
 -------------------------------- */
 .cd-main-content {
-    background-color: #151515;
+    background-color: #212121;
 }
 
 .cd-main-content .content-wrapper {
-  padding: 15px 2% 3em;
+  padding: 15px 2% 2% 2%;
     background-color: #212121;
 }
 .cd-main-content .content-wrapper h1 {
@@ -43,7 +43,7 @@ Main Page Content
 @media only screen and (min-width: 768px) {
   .cd-main-content .content-wrapper {
     margin-left: 110px;
-    padding-top: 1%;
+    padding-top: 2%;
   }
   .cd-main-content .content-wrapper h1 {
     padding: 4em 0;
@@ -283,7 +283,7 @@ Top Navigation
   /* top nav - not visible on mobile devices */
   display: none;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 100px) {
   .cd-nav {
     display: block;
     float: right;
@@ -314,7 +314,7 @@ Top Navigation
   border-radius: 50%;
   display: none;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 100px) {
   .cd-top-nav {
     height: 100%;
   }
@@ -398,7 +398,7 @@ Sidebar
 .cd-side-nav a {
   position: relative;
   color: #8f8f8f;
-  font-size: 0.8em;
+  font-size: 0.9em;
 }
 .cd-side-nav ul.cd-top-nav > li:last-of-type > a {
   border-bottom: none;
@@ -457,7 +457,7 @@ Sidebar
   border-radius: .25em;
   color: #ffffff;
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 0.8em;
   text-align: center;
 }
 .cd-side-nav .action-btn a {
@@ -475,12 +475,13 @@ Sidebar
 .cd-side-nav .action-btn a::before {
   display: none;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 100px) {
   .cd-side-nav {
     position: relative;
     float: left;
     top: auto;
     width: 110px;
+    background: linear-gradient(#151515, #212121);
     min-height: calc(100vh - 67px);
     /* reset style */
     visibility: visible;
@@ -503,7 +504,6 @@ Sidebar
     display: none;
   }
   .cd-side-nav a {
-    font-size: 1.0rem;
     text-align: center;
   }
   .cd-side-nav > ul > li > a {
@@ -551,11 +551,11 @@ Sidebar
   .cd-side-nav > ul {
     padding: 0.6em 0;
   }
-  .cd-side-nav > ul > li:not(.action-btn):hover > a {
-    background-color: #212121;
+  .cd-side-nav > ul > li:not(.active):hover {
+    opacity: 0.8;
   }
   .cd-side-nav > ul > li > a {
-    padding: 1em 1em 1em 42px;
+    padding: 0.5em 1em 0.5em 42px;
     text-align: left;
     border-bottom: none;
   }
@@ -634,7 +634,7 @@ Sidebar
   -o-transform: translateY(-50%) rotate(180deg);
   transform: translateY(-50%) rotate(180deg);
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 100px) {
   .has-children {
     position: relative;
   }

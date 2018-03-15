@@ -1,0 +1,35 @@
+<view ng-controller="TopArtists">
+    <h2>Top Artists</h2>
+    <div class="podiumstage">
+        <div class="podium" ng-repeat="artist in artists | limitTo: 3">
+            <div class="cropper">
+                <a href="{{artist.external_urls.spotify}}">
+                    <img src="{{artist.images[1].url}}">
+                </a>
+            </div>
+            <p>{{artist.name}}</p>
+        </div>
+    </div>
+    <table class="tbl-container">
+        <thead>
+        <tr>
+            <th></th>
+            <th><h5>Artist</h5></th>
+            <th></th>
+            <th><h5>Genres</h5></th>
+            <th><h5>Popularity</h5></th>
+            <th><h5>Followers</h5></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="artist in artists" name={{artist.id}}>
+            <td class="tableindex">{{$index + 1}}</td>
+            <td>{{artist.name}}</td>
+            <td><a href={{artist.external_urls.spotify}} target="_#"><img class="tableplay" src="assets/img/playicon.png"></a></td>
+            <td><span ng-repeat="genre in artist.genres">{{genre}} {{$last ? '' : ', '}}</span></td>
+            <td>{{artist.popularity}}</td>
+            <td>{{artist.followers.total}}</td>
+        </tr>
+        </tbody>
+    </table>
+</view>
