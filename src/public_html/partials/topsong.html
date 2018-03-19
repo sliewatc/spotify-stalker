@@ -10,6 +10,31 @@
             <p>{{song.name}}</p>
         </div>
     </div>
+    <div class="infoslide">
+        <p>Energy</p>
+        <div class="bar">
+            <div class="bar-fill" style="width: {{energy}}%"></div>
+        </div>
+        <p>Dance</p>
+        <div class="bar">
+            <div class="bar-fill" style="width: {{dance}}%"></div>
+        </div>
+        <p>Instrumentalness</p>
+        <div class="bar">
+            <div class="bar-fill" style="width: {{instrument}}%"></div>
+        </div>
+        <p>Valence</p>
+        <div class="bar">
+            <div class="bar-fill" style="width: {{valence}}%"></div>
+        </div>
+    </div>
+    <table class="tbl-ranger">
+        <tr>
+            <td><a href="http://stalkify.me/songable.php#!/topsongs/short_term"><p>Short</p></a></td>
+            <td><a href="http://stalkify.me/songable.php#!/topsongs/medium_term"><p>Medium</p></a></td>
+            <td><a href="http://stalkify.me/songable.php#!/topsongs/long_term"><p>Long</p></a></td>
+        </tr>
+    </table>
     <table class="tbl-container">
         <thead>
         <tr>
@@ -39,6 +64,8 @@
             <td colspan="6">
                 <img ng-src="{{song.album.images[2].url}}">
                 <div>
+                    <p>Energy: {{features[$index].energy * 100 | number:2}}%</p>
+                    <p>Dance: {{features[$index].danceability * 100 | number:2}}% - Tempo: {{features[$index].tempo | number:0}}</p>
                     <p>Popularity: {{song.popularity}} {{song.explicit ? ' - Explicit' : ''}}</p>
                 </div>
             </td>

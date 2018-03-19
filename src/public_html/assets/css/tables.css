@@ -188,6 +188,29 @@ h2 a {
     box-shadow: inset 3px 0 0 #1bb053;
 }
 
+.tbl-ranger {
+    margin: 1em 0 0 0;
+}
+
+.tbl-ranger td {
+    padding: 0 0.5em 0 0.5em;
+    margin-right: 1em;
+}
+
+.tbl-ranger p {
+    padding: 0.5em;
+    margin-bottom: 0;
+    font-size: 0.85rem;
+}
+
+.tbl-ranger a {
+    color: #8f8f8f;
+}
+
+.tbl-ranger a:hover .active-range{
+    text-decoration: none;
+    color: #1ED760;
+}
 
 /*
 

@@ -34,7 +34,7 @@ VALUES ('$username', '$fname', '$lname', '$psw', '$email', '$id', '$refreshToken
 if (mysqli_query($conn, $sql)) {
     echo "success";
     $_SESSION['actUser'] = $username;
-    $_SESSION['passUser'] = $password;
+    $_SESSION['passUser'] = $psw;
     $_SESSION['state'] = true;
     header('Location: index.php');
 } else {

@@ -1,13 +1,16 @@
 <?php
 include('setconnection.php');
 require '../vendor/autoload.php';
+session_start();
 
 $username = $_SESSION['actUser'];
-$password = $_SESSION['passUser'];
+$pass = $_SESSION['passUser'];
 
-$sql = mysqli_query($conn, "SELECT refreshtoken FROM `usertable` WHERE username = '$username' AND password = '$password'");
+$sql = mysqli_query($conn, "SELECT refreshtoken FROM `usertable` WHERE username = '$username' AND password = '$pass'");
 if ($sql) {
     echo "fine";
+    echo $username;
+    echo $pass;
     while ($row = mysqli_fetch_assoc($sql)){
         $refreshToken = $row['refreshtoken'];
     }

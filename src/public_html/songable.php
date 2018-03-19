@@ -29,23 +29,23 @@
         <ul>
             <li class="cd-label">STATS</li>
             <li class="overview" data-active-link>
-                <a href="#!/overall">Overview</a>
+                <a href="#!/overall/">Overview</a>
             </li>
             <li class="notifications" data-active-link="">
-                <a href="#!/topsongs">Top Songs</a>
+                <a href="#!/topsongs/long_term">Top Songs</a>
             </li>
             <li class="comments" data-active-link="">
-                <a href="#!/topartists">Top Artists</a>
+                <a href="#!/topartists/long_term">Top Artists</a>
             </li>
             <li class="overview" data-active-link="">
                 <a href="#!/recentsongs">Recent</a>
             </li>
         </ul>
+        <!--
         <ul>
             <li class="cd-label" data-active-link>FRIENDS</li>
             <li class="has-children bookmarks">
                 <a href="#">List 'Em</a>
-
             </li>
             <li class="images" data-active-link>
                 <a href="#">Top</a>
@@ -54,6 +54,7 @@
                 <a href="#">Add</a>
             </li>
         </ul>
+        -->
     </nav>
 
     <div class="content-wrapper">

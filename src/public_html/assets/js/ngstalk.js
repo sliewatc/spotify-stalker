@@ -2,24 +2,24 @@ var stalkApp = angular.module('stalkApp', ['ngRoute']);
 
 stalkApp.config(function($routeProvider) {
     $routeProvider
-        .when("/overall", {
-            templateUrl : "http://165.227.45.166/partials/overall.html",
+        .when("/overall/", {
+            templateUrl : "http://stalkify.me/partials/overall.html",
             controller: 'OverallStats'
         })
-        .when("/topsongs", {
-            templateUrl : "http://165.227.45.166/partials/topsong.html",
+        .when("/topsongs/:range", {
+            templateUrl : "http://stalkify.me/partials/topsong.html",
             controller : 'TopSongs'
         })
         .when("/recentsongs", {
-            templateUrl : "http://165.227.45.166/partials/recentsong.html",
+            templateUrl : "http://stalkify.me/partials/recentsong.html",
             controller : 'RecentSongs'
         })
-        .when("/topartists", {
-            templateUrl : "http://165.227.45.166/partials/topartist.html",
+        .when("/topartists/:range", {
+            templateUrl : "http://stalkify.me/partials/topartist.html",
             controller : 'TopArtists'
         })
         .otherwise({
-            redirect : '/overall'
+            redirect : '/overall/'
         });
 });
 
@@ -108,7 +108,7 @@ stalkApp.controller('RecentSongs', ['$scope', '$http', function($scope, $http) {
     var config = {headers : {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'}};
     var idAr = [];
     var ids = "";
-    $http.post("http://165.227.45.166/getrecentsong.php", data, config)
+    $http.post("http://stalkify.me/getrecentsong.php", data, config)
         .then(function(response) {
             $scope.songs = response.data['items'];
             var song;
@@ -119,7 +119,7 @@ stalkApp.controller('RecentSongs', ['$scope', '$http', function($scope, $http) {
             console.log(response.data);
 
             data = $.param({addstr: ids});
-            $http.post("http://165.227.45.166/audiofeatures.php", data, config)
+            $http.post("http://stalkify.me/audiofeatures.php", data, config)
                 .then(function(response) {
                     var dance = 0;
                     var energy = 0;
@@ -150,14 +150,48 @@ stalkApp.controller('RecentSongs', ['$scope', '$http', function($scope, $http) {
 
 }]);
 
-stalkApp.controller('TopSongs', ['$scope', '$http', function($scope, $http) {
-    var data = $.param({type: "tracks", time_range: "long_term"});
-    var config = {headers : {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'}};
+stalkApp.controller('TopSongs', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
+    timeRange = $routeParams.range;
 
-    $http.post("http://165.227.45.166/gettop.php", data, config)
+    var data = $.param({type: "tracks", time_range: timeRange});
+    var config = {headers : {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'}};
+    var idAr = [];
+    var ids = "";
+
+    $http.post("http://stalkify.me/gettop.php", data, config)
         .then(function(response) {
             $scope.songs = response.data['items'];
             console.log(response.data);
+            var song;
+            for (song of $scope.songs) {
+                idAr.push(song.id);
+            }
+            ids = idAr.join(",");
+            data = $.param({addstr: ids});
+            $http.post("http://stalkify.me/audiofeatures.php", data, config)
+                .then(function(response) {
+                    var dance = 0;
+                    var energy = 0;
+                    var valence = 0;
+                    var instrument = 0;
+                    var acoustic = 0;
+                    $scope.features = response.data['audio_features'];
+                    console.log(response.data);
+                    for (feature of $scope.features) {
+                        dance += feature.danceability;
+                        energy += feature.energy;
+                        valence += feature.valence;
+                        instrument += feature.instrumentalness;
+                        acoustic += feature.acousticness;
+                    }
+                    $scope.dance = dance / 20 * 100;
+                    $scope.energy = energy / 20 * 100;
+                    $scope.valence = valence / 20 * 100;
+                    $scope.instrument = instrument / 20 * 100;
+                    $scope.acoustic = acoustic / 20 * 100;
+
+                })
+                .catch();
         })
         .catch(function(data) {
             console.error("OOPS");
@@ -165,11 +199,13 @@ stalkApp.controller('TopSongs', ['$scope', '$http', function($scope, $http) {
 }]);
 
 
-stalkApp.controller('TopArtists', ['$scope', '$http', function($scope, $http) {
-    var data = $.param({type: "artists", time_range: "long_term"});
+stalkApp.controller('TopArtists', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
+    timeRange = $routeParams.range;
+
+    var data = $.param({type: "artists", time_range: timeRange});
     var config = {headers : {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'}};
 
-    $http.post("http://165.227.45.166/gettop.php", data, config)
+    $http.post("http://stalkify.me/gettop.php", data, config)
         .then(function(response) {
             $scope.artists = response.data['items'];
             console.log(response.data);
@@ -183,7 +219,7 @@ stalkApp.controller('OverallStats', ['$scope', '$http', function($scope, $http) 
     var data = $.param({type: "tracks", time_range: "long_term", limit: 3});
     var config = {headers : {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'}};
 
-    $http.post("http://165.227.45.166/gettop.php", data, config)
+    $http.post("http://stalkify.me/gettop.php", data, config)
         .then(function(response) {
             $scope.songs = response.data['items'];
             console.log(response.data);
@@ -194,7 +230,7 @@ stalkApp.controller('OverallStats', ['$scope', '$http', function($scope, $http) 
 
     data = $.param({type: "artists", time_range: "long_term", limit: 3});
 
-    $http.post("http://165.227.45.166/gettop.php", data, config)
+    $http.post("http://stalkify.me/gettop.php", data, config)
         .then(function(response) {
             $scope.artists = response.data['items'];
             console.log(response.data);

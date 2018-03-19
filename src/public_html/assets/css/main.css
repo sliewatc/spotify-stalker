@@ -225,3 +225,14 @@ a, a:hover {
     -o-transition: width 500ms ease-out 1s;
     transition: width 500ms ease-out 1s;
 }
+
+#login {
+    margin: 25px 0 10px 0;
+    text-align: right;
+    padding-bottom: 0;
+    box-sizing: border-box;
+}
+
+#login a {
+    color: #a0b3b0;
+}
