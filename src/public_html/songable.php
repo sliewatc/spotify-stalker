@@ -1,4 +1,4 @@
-<html lang=>
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Stalkify Dash</title>

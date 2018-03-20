@@ -19,7 +19,7 @@ stalkApp.config(function($routeProvider) {
             controller : 'TopArtists'
         })
         .otherwise({
-            redirect : '/overall/'
+            redirect : 'http://stalkify.me/songable.php#!/overall/'
         });
 });
 
@@ -88,6 +88,10 @@ stalkApp.run(function($rootScope) {
             $rootScope.open = index;
         }
     };
+});
+
+stalkApp.run(function($rootScope) {
+
 });
 
 stalkApp.filter('songTime',function(){
@@ -159,7 +163,13 @@ stalkApp.controller('RecentSongs', ['$scope', '$http', function($scope, $http) {
                 .catch();
         })
         .catch(function(data) {
-            console.error("OOPS");
+            $http.get("http://stalkify.me/tokenrefresh.php")
+                .then(function(response) {
+                    console.log(response);
+                })
+                .catch(function(data) {
+                    window.location.href = 'http://stalkify.me/login.php';
+                })
         });
 
 }]);
@@ -212,7 +222,13 @@ stalkApp.controller('TopSongs', ['$scope', '$http', '$routeParams', function($sc
                 .catch();
         })
         .catch(function(data) {
-            console.error("OOPS");
+            $http.get("http://stalkify.me/tokenrefresh.php")
+                .then(function(response) {
+                    console.log(response);
+                })
+                .catch(function(data) {
+                    window.location.href = 'http://stalkify.me/login.php';
+                })
         });
 }]);
 
@@ -235,7 +251,13 @@ stalkApp.controller('TopArtists', ['$scope', '$http', '$routeParams', function($
             console.log(response.data);
         })
         .catch(function(data) {
-            console.error("OOPS");
+            $http.get("http://stalkify.me/tokenrefresh.php")
+                .then(function(response) {
+                    console.log(response);
+                })
+                .catch(function(data) {
+                    window.location.href = 'http://stalkify.me/login.php';
+                })
         });
 }]);
 
@@ -249,7 +271,13 @@ stalkApp.controller('OverallStats', ['$scope', '$http', function($scope, $http) 
             console.log(response.data);
         })
         .catch(function(data) {
-            console.error("OOPS");
+            $http.get("http://stalkify.me/tokenrefresh.php")
+                .then(function(response) {
+                    console.log(response);
+                })
+                .catch(function(data) {
+                    window.location.href = 'http://stalkify.me/login.php';
+                })
         });
 
     data = $.param({type: "artists", time_range: "long_term", limit: 3});

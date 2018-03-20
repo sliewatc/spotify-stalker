@@ -8,7 +8,6 @@ $pass = $_SESSION['passUser'];
 
 $sql = mysqli_query($conn, "SELECT refreshtoken FROM `usertable` WHERE username = '$username' AND password = '$pass'");
 if ($sql) {
-    echo "fine";
     echo $username;
     echo $pass;
     while ($row = mysqli_fetch_assoc($sql)){
