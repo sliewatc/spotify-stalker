@@ -23,8 +23,6 @@ $accessToken = $session->getAccessToken();
 $refreshToken = $session->getRefreshToken();
 $api->setAccessToken($accessToken);
 
-$_SESSION['accessToken'] = $accessToken;
-
 $return = $api->me();
 $id = $return->id;
 
@@ -32,11 +30,14 @@ $sql = "INSERT INTO usertable (username, firstname, lastname, password, email, s
 VALUES ('$username', '$fname', '$lname', '$psw', '$email', '$id', '$refreshToken', '$accessToken')";
 
 if (mysqli_query($conn, $sql)) {
+    session_reset();
     echo "success";
     $_SESSION['actUser'] = $username;
-    $_SESSION['passUser'] = $password;
+    $_SESSION['passUser'] = $psw;
+    $_SESSION['accesstoken'] = $accessToken;
     $_SESSION['state'] = true;
-    header('Location: index.php');
+
+    header('Location: songable.php#!/overall');
 } else {
     echo "Error that account is already linked";
     header('Location: register.php');
