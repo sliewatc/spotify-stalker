@@ -1,5 +1,5 @@
 <view ng-controller="TopSongs">
-    <h2>Top Tracks</h2>
+    <h2>Top Tracks - {{timeRange | rangeToStr}}</h2>
     <div class="podiumstage">
         <div class="podium" ng-repeat="song in songs | limitTo: 3">
             <div class="cropper" style="border-radius: 5%">
@@ -11,6 +11,10 @@
         </div>
     </div>
     <div class="infoslide">
+        <p>You're {{hipster | number:1}}% hipster based on your {{timeRange | rangeToStr | lowercase}} favorite songs.</p>
+        <div class="bar">
+            <div class="bar-fill" style="background-color: #1a93de; width: {{hipster}}%"></div>
+        </div>
         <p>Energy</p>
         <div class="bar">
             <div class="bar-fill" style="width: {{energy}}%"></div>
@@ -28,13 +32,16 @@
             <div class="bar-fill" style="width: {{valence}}%"></div>
         </div>
     </div>
-    <table class="tbl-ranger">
-        <tr>
-            <td><a href="http://stalkify.me/songable.php#!/topsongs/short_term"><p>Short</p></a></td>
-            <td><a href="http://stalkify.me/songable.php#!/topsongs/medium_term"><p>Medium</p></a></td>
-            <td><a href="http://stalkify.me/songable.php#!/topsongs/long_term"><p>Long</p></a></td>
-        </tr>
-    </table>
+    <div class="table-header">
+        <h2>Top 20</h2>
+        <table class="tbl-ranger">
+            <tr>
+                <td><a href="http://stalkify.me/songable.php#!/topsongs/long_term"><p>Long</p></a></td>
+                <td><a href="http://stalkify.me/songable.php#!/topsongs/medium_term"><p>Medium</p></a></td>
+                <td><a href="http://stalkify.me/songable.php#!/topsongs/short_term"><p>Short</p></a></td>
+            </tr>
+        </table>
+    </div>
     <table class="tbl-container">
         <thead>
         <tr>

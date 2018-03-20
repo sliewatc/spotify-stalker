@@ -112,6 +112,10 @@ h2 a {
     background-color: #202020;
 }
 
+.tbl-container tbody tr {
+    cursor: pointer;
+}
+
 .tableplay {
     height: 20px;
     width: 20px;
@@ -189,13 +193,16 @@ h2 a {
 }
 
 .tbl-ranger {
-    margin: 1em 0 0 0;
+    margin: 0 1em 0.2em 0;
+    float: right;
+    justify-self: end;
 }
 
 .tbl-ranger td {
     padding: 0 0.5em 0 0.5em;
     margin-right: 1em;
 }
+
 
 .tbl-ranger p {
     padding: 0.5em;
@@ -210,6 +217,20 @@ h2 a {
 .tbl-ranger a:hover .active-range{
     text-decoration: none;
     color: #1ED760;
+}
+
+.table-header {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background: linear-gradient(to right, #212121,#151515, #151515);
+}
+
+.table-header h2 {
+    line-height: inherit;
+    padding-bottom: 0.2em;
 }
 
 /*

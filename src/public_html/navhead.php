@@ -4,9 +4,11 @@ session_start();
 
 <div class="row nav-bar noselect">
     <div class="col-6">
-        <h4 class= "col stalk-title font-weight-light">
-            Stalkify
-        </h4>
+        <a href="http://stalkify.me">
+            <h4 class= "col stalk-title font-weight-light">
+                Stalkify
+            </h4>
+        </a>
     </div>
     <div class="row col-6 align-items-center justify-content-end">
         <div class="menu-wrapper">

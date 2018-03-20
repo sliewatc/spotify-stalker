@@ -103,6 +103,20 @@ stalkApp.filter('songTime',function(){
     };
 });
 
+stalkApp.filter('rangeToStr', function(){
+    return function(timeRange) {
+        var rangeStr = "";
+        if (timeRange == 'long_term') {
+            rangeStr = 'All Time';
+        } else if (timeRange == 'medium_term') {
+            rangeStr = ' Last 6 Months'
+        } else if (timeRange == 'short_term') {
+            rangeStr = 'Last Months'
+        }
+        return rangeStr;
+    }
+});
+
 stalkApp.controller('RecentSongs', ['$scope', '$http', function($scope, $http) {
     var data = $.param({limit: 20});
     var config = {headers : {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'}};
@@ -151,9 +165,9 @@ stalkApp.controller('RecentSongs', ['$scope', '$http', function($scope, $http) {
 }]);
 
 stalkApp.controller('TopSongs', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
-    timeRange = $routeParams.range;
+    $scope.timeRange = $routeParams.range;
 
-    var data = $.param({type: "tracks", time_range: timeRange});
+    var data = $.param({type: "tracks", time_range: $scope.timeRange});
     var config = {headers : {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'}};
     var idAr = [];
     var ids = "";
@@ -163,9 +177,13 @@ stalkApp.controller('TopSongs', ['$scope', '$http', '$routeParams', function($sc
             $scope.songs = response.data['items'];
             console.log(response.data);
             var song;
+            var sumPopular = 0;
             for (song of $scope.songs) {
                 idAr.push(song.id);
+                sumPopular += song.popularity;
             }
+            $scope.hipster = 100 - (sumPopular / 20);
+
             ids = idAr.join(",");
             data = $.param({addstr: ids});
             $http.post("http://stalkify.me/audiofeatures.php", data, config)
@@ -200,14 +218,20 @@ stalkApp.controller('TopSongs', ['$scope', '$http', '$routeParams', function($sc
 
 
 stalkApp.controller('TopArtists', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
-    timeRange = $routeParams.range;
+    $scope.timeRange = $routeParams.range;
 
-    var data = $.param({type: "artists", time_range: timeRange});
+    var data = $.param({type: "artists", time_range: $scope.timeRange});
     var config = {headers : {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'}};
 
     $http.post("http://stalkify.me/gettop.php", data, config)
         .then(function(response) {
             $scope.artists = response.data['items'];
+            var artist;
+            var sumPopular = 0;
+            for (artist of $scope.artists) {
+                sumPopular += artist.popularity;
+            }
+            $scope.hipster = 100 - (sumPopular / 20);
             console.log(response.data);
         })
         .catch(function(data) {

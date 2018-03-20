@@ -30,6 +30,11 @@ a, a:hover {
 .stalk-title {
     font-size: 3em;
     padding: 0 0 0 10px;
+    color: #1bb053;
+}
+
+.stalk-title:hover {
+    color: #1bb053;
 }
 
 .contform {
@@ -46,7 +51,6 @@ a, a:hover {
     filter: brightness(1.4);
     -webkit-filter: brightness(1.4);
 }
-
 
 .bg-view {
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url("../img/bg-header.jpg");

@@ -39,6 +39,7 @@
                         </div>
                     </div>
                 </div>
+                <!--
                 <div class="col-12 text-center">
                     <div class="row">
                         <div class="left-sbar col-12 col-md-3">Left</div>
@@ -46,6 +47,7 @@
                         <div class="right-sbar col-12 col-md-3">Right</div>
                     </div>
                 </div>
+                -->
             </div>
         </div>
     </body>
